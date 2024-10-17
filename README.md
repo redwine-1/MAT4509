@@ -1,6 +1,6 @@
 # Probability & Statistics ( MAT 4509 )
 
-This repository contains all the course related codes of probability and statistics (assigment, project, practice etc) i took during my 5th semester. 
+This repository contains all the course related codes for probability and statistics—such as assignments, projects and practice excercises from my 5th semester. 
 
 ## Rationale of the Course:
 Engineering students always require knowledge of probability and statistical to investigate the feasibility of engineering equipment. To provide the knowledge of probability and statistics this course is designed for engineering students.
@@ -16,3 +16,8 @@ Engineering students always require knowledge of probability and statistical to 
 2. Calculate statistics and parameters such as mean, median from data sets.
 3. Apply statistics and parameters for social and business decision.
 4. Analyse engineering problems in statistical context
+
+## Clone repository
+```
+git clone https://github.com/redwine-1/MAT4509
+```
