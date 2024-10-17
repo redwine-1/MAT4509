@@ -1,0 +1,69 @@
+library(readxl)
+library(rstudioapi)
+
+# Set working directory and load data
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
+# load dataset
+data_file <- "United Airlines Aircraft Operating Statistics- Cost Per Block Hour (Unadjusted).xlsx"
+all_data <- read_excel(data_file, range = "b2:w158")
+
+maintenance_categories <- c("labor", "materials", "third party", "burden")
+years <- 1995:2015
+
+# Function to extract data for a given row number (Maintenance/Load Factor)
+get_data_by_row <- function(row_num) {
+    return(na.omit(as.numeric(all_data[row_num, -1])))
+}
+get_maintenace_category <- function(row_num) {
+    labor <- get_data_by_row(row_num + 1)
+    materials <- get_data_by_row(row_num + 2)
+    third_party <- get_data_by_row(row_num + 3)
+    burden <- get_data_by_row(row_num + 5)
+    return(setNames(
+        c(sum(labor), sum(materials), sum(third_party), sum(burden)),
+        maintenance_categories
+    ))
+}
+
+# For ploting Load Factor bar plot
+plot_bar <- function(data, title) {
+    barplot(data,
+        main = title,
+        xlab = "Years",
+        ylab = "Load Factor (%)",
+        col = "lightgreen",
+        border = "black"
+    )
+}
+
+# Maintenance and Load Factor row numbers
+maintenance_rows <- c(16, 55, 94, 133)
+load_factor_rows <- maintenance_rows + 18
+
+fleet_category <- c(
+    "small narrowbodies",
+    "large narrowbodies",
+    "widebodies",
+    "total fleet"
+)
+
+# pie chart for maintenance
+windows(width = 1920 / 100, height = 1080 / 100) # Set window size
+par(mfrow = c(2, 2), oma = c(0, 0, 3, 0))
+lapply(1:4, function(i) {
+    data <- get_maintenace_category(maintenance_rows[i])
+    pie(data, main = fleet_category[i])
+})
+mtext("Maintenance", outer = TRUE, cex = 1.5)
+par(mfrow = c(1, 1))
+
+# bar chart for load factor
+windows(width = 1920 / 100, height = 1080 / 100) # Set window size
+par(mfrow = c(2, 2), oma = c(0, 0, 3, 0))
+lapply(1:4, function(i) {
+    data <- setNames(get_data_by_row(load_factor_rows[i]), years)
+    plot_bar(data, fleet_category[i])
+})
+mtext("Load Factor", outer = TRUE, cex = 1.5)
+par(mfrow = c(1, 1))
