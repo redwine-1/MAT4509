@@ -92,14 +92,13 @@ print_analysis <- function(wage_data, title) {
   cat("Range:", range, "\n")
   cat("\n\n")
 }
-set_window_size <- function() {
-  windows(width = 1920 / 100, height = 1080 / 100)
+set_window_size <- function(window_title) {
+  windows(width = 1920 / 200, height = 1080 / 200, title = window_title)
 }
 
-plot_histogram <- function(frequency_distribution, title) {
-  set_window_size()
+plot_histogram <- function(frequency_distribution, window_title) {
+  set_window_size(window_title)
   barplot(frequency_distribution,
-    main = title,
     xlab = "Salary Ranges",
     ylab = "Frequency",
     col = "lightblue",
@@ -114,6 +113,16 @@ snbodies_fdistribution <- get_frequency_distribution(salary_wages_snbodies)
 lbodies_fdistribution <- get_frequency_distribution(salary_wages_lnbodies)
 wbodies_fdisgribution <- get_frequency_distribution(salary_wages_wbodies)
 tfleet_fdistribution <- get_frequency_distribution(salary_wages_tfleet)
+
+# print Frequency Distribution
+cat("Frequency Distribution for Small Narrowbodies:\n")
+print(snbodies_fdistribution)
+cat("\nFrequency Distribution for Large Narrowbodies:\n")
+print(lbodies_fdistribution)
+cat("\nFrequency Distribution for Widebodies:\n")
+print(wbodies_fdisgribution)
+cat("\nFrequency Distribution for Total Fleet:\n")
+print(tfleet_fdistribution)
 
 # print analysis (ii)
 print_analysis(salary_wages_snbodies, "salary wages of small narrowbodies")

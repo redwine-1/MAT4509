@@ -1,0 +1,90 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{geometry}
+\usepackage{listings} % For including code
+\usepackage{xcolor}   % For code coloring
+\usepackage{pgfplots} % for plotting
+\pgfplotsset{compat=1.18} % ensuring compatibility
+\geometry{margin=1in}
+
+\title{Assignment 1: United Airlines Aircraft Operating Statistics Analysis}
+\author{Muhtasim Redwan \\ Student ID: 22024002 \\ muhtasim.redwan.ae@proton.me}
+\date{October 2024}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+This report analyzes data from the ``United Airlines Aircraft Operating Statistics- Cost Per Block Hour (Unadjusted).xlsx" file
+to answer several statistical questions. The analysis involves using statistical techniques 
+such as frequency distributions, measures of central tendency, measures of dispersion, and data visualization 
+through histograms, pie charts, bar diagrams, and box plots.
+The data is processed using R programming language, and all visualizations and numerical outputs are based on the provided sample.
+
+\section{Question 1}
+The provided file contains data on small narrowbodies, large narrowbodies, widebodies and total feelt. Each fleet
+type was analyzed individually. Parts (i) to (iii) will be answered based on the following code:
+
+\lstset{ %
+  language=R,                     % Code language
+  basicstyle=\ttfamily\footnotesize, % Code font
+  numbers=left,                   % Line numbers on the left
+%   numberstyle=\tiny,              % Line number font size
+  stepnumber=1,                   % Line number step size
+  numbersep=5pt,                  % Space between line numbers and code
+  backgroundcolor=\color{lightgray!20}, % Background color for code block
+  showspaces=false,               % Show spaces
+  showstringspaces=false,         % Don't show spaces in strings
+  tabsize=4,                      % Tab size
+  breaklines=true,                % Line breaking
+  breakatwhitespace=false,        % Don't break at whitespaces only
+  keywordstyle=\color{teal},        % Keywords color (calm but stands out)
+  commentstyle=\color{olive},       % Comment color (subtle but readable)
+  stringstyle=\color{magenta},
+}
+
+\lstinputlisting{../Q1_i_iii.R}
+
+\input{subsection_part_i.tex}
+\input{subsection_part_ii.tex}
+\input{subsection_part_iii.tex}
+
+\subsection{Part iv: Pie Chart and Bar Diagram for Maintenance and Load Factor}
+We analyze the variables "Maintenance" and "Load Factor" using both a pie chart and a bar diagram to visualize their distribution.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.45\textwidth]{maintenance_pie.png} % Replace with the correct file path
+%     \includegraphics[width=0.45\textwidth]{loadfactor_bar.png} % Replace with the correct file path
+%     \caption{Pie Chart for Maintenance and Bar Diagram for Load Factor}
+% \end{figure}
+
+\subsection{Part v: Box Plot for Purchased Goods, Aircraft Ownership, and Daily Utilization}
+Box plots are developed for the variables "Purchased Goods", "Aircraft Ownership", and "Daily Utilization per Aircraft" to visualize their spread and identify any outliers.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.45\textwidth]{boxplot_purchasedgoods.png} % Replace with the correct file path
+%     \includegraphics[width=0.45\textwidth]{boxplot_aircraftownership.png} % Replace with the correct file path
+%     \caption{Box Plots for Purchased Goods and Aircraft Ownership}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.45\textwidth]{boxplot_dailyutilization.png} % Replace with the correct file path
+%     \caption{Box Plot for Daily Utilization per Aircraft}
+% \end{figure}
+
+\subsection{Part vi: Interpretation of the Plots}
+The histogram for "Grouped Salaries" shows a slightly skewed distribution, with most employees concentrated around the median salary. The box plots show the spread of each variable, with "Purchased Goods" exhibiting a significant amount of variability and potential outliers. The "Load Factor" bar diagram shows a consistent pattern of utilization, while the "Maintenance" pie chart provides insight into the relative maintenance cost distribution.
+
+\section*{Conclusion}
+This report has provided a detailed statistical analysis of the United Airlines Aircraft Operating Statistics dataset. We have computed descriptive statistics, created frequency distributions, and visualized the data using various plots, each contributing valuable insights into the dataset.
+
+\end{document}
