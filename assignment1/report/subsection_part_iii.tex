@@ -2,25 +2,22 @@
 A histogram is created  based on the frequency distribution calculated in part i
 using \textit{plot\_histogram} function.
 
-\lstinputlisting[language=R, firstline=99, lastline=110, numbers=none,  frame=single]{../Q1_i_iii.R}
+\lstinputlisting[language=R, firstline=99, lastline=110]{../Q1_i_iii.R}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/histogramSmallNarrowBodies.png}
-    \caption{Histogram of Small Narrowbodies}
+    \subfigure[Small Narrowbodies]{
+        \includegraphics[width=0.45\textwidth]{images/histogramSmallNarrowBodies.png}
+    }
+    \subfigure[Large Narrowbodies]{
+        \includegraphics[width=0.45\textwidth]{images/histogramLargeNarrowBodies.png}
+    }
+    \subfigure[Widebodies]{
+        \includegraphics[width=0.45\textwidth]{images/histogramWidebodies.png}
+    }
+    \subfigure[Total Fleet]{
+        \includegraphics[width=0.45\textwidth]{images/histogramTotalFleet.png}
+    }
+    \caption{Histograms of Fleet Categories}
 \end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/histogramLargeNarrowBodies.png}
-    \caption{Histogram of Small Narrowbodies}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/histogramWidebodies.png}
-    \caption{Histogram of Widebodies}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/histogramTotalFleet.png}
-    \caption{Histogram of Total Fleet}
-\end{figure}
+

@@ -25,9 +25,6 @@ ownership_rows <- purchased_goods_rows + 12
 daily_utilization_rows <- ownership_rows + 13
 
 get_data_by_row <- function(row_num) {
-  if (row_num > nrow(all_data)) {
-    stop("Row number exceeds data range.")
-  }
   return(na.omit(as.numeric(all_data[row_num, -1])))
 }
 

@@ -9,7 +9,10 @@ data_file <- "United Airlines Aircraft Operating Statistics- Cost Per Block Hour
 all_data <- read_excel(data_file, range = "b2:w158")
 
 maintenance_categories <- c("labor", "materials", "third party", "burden")
+maintenance_rows <- c(16, 55, 94, 133)
+
 years <- 1995:2015
+load_factor_rows <- maintenance_rows + 18
 
 # Function to extract data for a given row number (Maintenance/Load Factor)
 get_data_by_row <- function(row_num) {
@@ -37,9 +40,7 @@ plot_bar <- function(data, title) {
     )
 }
 
-# Maintenance and Load Factor row numbers
-maintenance_rows <- c(16, 55, 94, 133)
-load_factor_rows <- maintenance_rows + 18
+
 
 fleet_category <- c(
     "small narrowbodies",
@@ -49,14 +50,18 @@ fleet_category <- c(
 )
 
 # pie chart for maintenance
-windows(width = 1920 / 100, height = 1080 / 100) # Set window size
-par(mfrow = c(2, 2), oma = c(0, 0, 3, 0))
 lapply(1:4, function(i) {
+    file_name <- paste0(
+        "report/images/",
+        gsub(" ", "_", fleet_category[i]),
+        "maintenace_pie", ".png"
+    )
+    png(file_name, width = 300, height = 300)
     data <- get_maintenace_category(maintenance_rows[i])
-    pie(data, main = fleet_category[i])
+    pie(data)
+    dev.off()
 })
-mtext("Maintenance", outer = TRUE, cex = 1.5)
-par(mfrow = c(1, 1))
+
 
 # bar chart for load factor
 windows(width = 1920 / 100, height = 1080 / 100) # Set window size

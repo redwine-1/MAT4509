@@ -7,16 +7,16 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 data_file <- "United Airlines Aircraft Operating Statistics- Cost Per Block Hour (Unadjusted).xlsx"
 all_data <- read_excel(data_file, range = "b2:w158")
 
-# Helper function to extract salary data by row
-get_salary_wages <- function(row_num, data = all_data) {
+# Helper function to load  data by row
+get_data_by_row <- function(row_num, data = all_data) {
   return(na.omit(as.numeric(data[row_num, -1])))
 }
 
 # Extract salary and wages data for different fleets
-salary_wages_snbodies <- get_salary_wages(6)
-salary_wages_lnbodies <- get_salary_wages(45)
-salary_wages_wbodies <- get_salary_wages(84)
-salary_wages_tfleet <- get_salary_wages(123)
+salary_wages_snbodies <- get_data_by_row(6)
+salary_wages_lnbodies <- get_data_by_row(45)
+salary_wages_wbodies <- get_data_by_row(84)
+salary_wages_tfleet <- get_data_by_row(123)
 
 
 get_modes <- function(data) {
@@ -96,8 +96,8 @@ set_window_size <- function(window_title) {
   windows(width = 1920 / 200, height = 1080 / 200, title = window_title)
 }
 
-plot_histogram <- function(frequency_distribution, window_title) {
-  set_window_size(window_title)
+plot_histogram <- function(frequency_distribution, window_title, file_name) {
+  png(file = file_name, width = 400, height = 300)
   barplot(frequency_distribution,
     xlab = "Salary Ranges",
     ylab = "Frequency",
@@ -106,6 +106,7 @@ plot_histogram <- function(frequency_distribution, window_title) {
     space = 0, # No space between bars
     width = 1 # Adjust width to fill the space better
   )
+  dev.off()
 }
 
 # get frequency distribution (i)
@@ -131,7 +132,19 @@ print_analysis(salary_wages_wbodies, "salary wages of widebodies")
 print_analysis(salary_wages_tfleet, "salary wages of total fleet")
 
 # histogram using i. (iii)
-plot_histogram(snbodies_fdistribution, "salary wages of small narrowbodies")
-plot_histogram(lbodies_fdistribution, "salary wages of large narrowbodies")
-plot_histogram(wbodies_fdisgribution, "salary wages of widebodies")
-plot_histogram(tfleet_fdistribution, "salary wages of total fleet")
+plot_histogram(
+  snbodies_fdistribution, "salary wages of small narrowbodies",
+  "report/images/histogramSmallNarrowBodies.png"
+)
+plot_histogram(
+  lbodies_fdistribution, "salary wages of large narrowbodies",
+  "report/images/histogramLargeNarrowBodies.png"
+)
+plot_histogram(
+  wbodies_fdisgribution, "salary wages of widebodies",
+  "report/images/histogramWidebodies.png"
+)
+plot_histogram(
+  tfleet_fdistribution, "salary wages of total fleet",
+  "report/images/histogramTotalFleet.png"
+)

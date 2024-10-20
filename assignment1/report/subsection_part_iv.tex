@@ -1,0 +1,40 @@
+\subsection{Part iv: Pie Chart and Bar Diagram for Maintenance and Load Factor}
+The variable "Maintenance" had three categories. At first \textit{maintenance\_categories} and \textit{maintenance\_rows} are defined.
+\lstinputlisting[language=R, firstline = 8, lastline = 9]{../Q1_iv.R}
+
+``Maintenance" data of each feelt categories was loaded using \textit{get\_maintenace\_category} function.
+\lstinputlisting[language=R, firstline = 21, lastline = 30]{../Q1_iv.R}
+
+The pie chart was drwan using the following code:
+\lstinputlisting[language=R, firstline = 52, lastline = 63]{../Q1_iv.R}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.45\textwidth]{maintenance_pie.png} % Replace with the correct file path
+%     \includegraphics[width=0.45\textwidth]{loadfactor_bar.png} % Replace with the correct file path
+%     \caption{Pie Chart for Maintenance and Bar Diagram for Load Factor}
+% \end{figure}
+
+\begin{figure}[H]
+    \centering
+    % First row, first image
+    \subfigure[Small Narrowbodies]{
+        \includegraphics[width=0.45\textwidth]{images/small_narrowbodiesmaintenace_pie.png}
+    }
+    % First row, second image
+    \subfigure[Large Narrowbodies]{
+        \includegraphics[width=0.45\textwidth]{images/large_narrowbodiesmaintenace_pie.png}
+    }
+
+    % Second row, first image
+    \subfigure[Widebodies]{
+        \includegraphics[width=0.45\textwidth]{images/widebodiesmaintenace_pie.png}
+    }
+    % Second row, second image
+    \subfigure[Total Fleet]{
+        \includegraphics[width=0.45\textwidth]{images/total_fleetmaintenace_pie.png}
+    }
+
+    \caption{Pie Chart of the variable Maintenance}
+\end{figure}
+
