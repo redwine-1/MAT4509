@@ -52,8 +52,8 @@ get_frequency_distribution <- function(
 
   # Create breakpoints
   break_points <- seq(
-    min_salary - (class_interval / 2),
-    max_salary + (class_interval / 2),
+    min_salary - (class_interval / 2), # starting point
+    max_salary + (class_interval / 2), # ending point
     by = class_interval
   )
 
@@ -97,7 +97,7 @@ set_window_size <- function(window_title) {
 }
 
 plot_histogram <- function(frequency_distribution, window_title, file_name) {
-  png(file = file_name, width = 400, height = 300)
+  png(file = file_name, width = 500, height = 350)
   barplot(frequency_distribution,
     xlab = "Salary Ranges",
     ylab = "Frequency",

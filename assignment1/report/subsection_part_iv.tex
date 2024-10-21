@@ -6,35 +6,47 @@ The variable "Maintenance" had three categories. At first \textit{maintenance\_c
 \lstinputlisting[language=R, firstline = 21, lastline = 30]{../Q1_iv.R}
 
 The pie chart was drwan using the following code:
-\lstinputlisting[language=R, firstline = 52, lastline = 63]{../Q1_iv.R}
-
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.45\textwidth]{maintenance_pie.png} % Replace with the correct file path
-%     \includegraphics[width=0.45\textwidth]{loadfactor_bar.png} % Replace with the correct file path
-%     \caption{Pie Chart for Maintenance and Bar Diagram for Load Factor}
-% \end{figure}
+\lstinputlisting[language=R, firstline = 53, lastline = 64]{../Q1_iv.R}
 
 \begin{figure}[H]
     \centering
     % First row, first image
     \subfigure[Small Narrowbodies]{
-        \includegraphics[width=0.45\textwidth]{images/small_narrowbodiesmaintenace_pie.png}
+        \includegraphics[width=0.45\textwidth]{images/small_narrowbodies_maintenace_pie.png}
     }
     % First row, second image
     \subfigure[Large Narrowbodies]{
-        \includegraphics[width=0.45\textwidth]{images/large_narrowbodiesmaintenace_pie.png}
+        \includegraphics[width=0.45\textwidth]{images/large_narrowbodies_maintenace_pie.png}
     }
 
     % Second row, first image
     \subfigure[Widebodies]{
-        \includegraphics[width=0.45\textwidth]{images/widebodiesmaintenace_pie.png}
+        \includegraphics[width=0.45\textwidth]{images/widebodies_maintenace_pie.png}
     }
     % Second row, second image
     \subfigure[Total Fleet]{
-        \includegraphics[width=0.45\textwidth]{images/total_fleetmaintenace_pie.png}
+        \includegraphics[width=0.45\textwidth]{images/total_fleet_maintenace_pie.png}
     }
 
     \caption{Pie Chart of the variable Maintenance}
 \end{figure}
 
+The bar charts were drwan using the following the code:
+\lstinputlisting[language=R, firstline = 67, lastline = 78]{../Q1_iv.R}
+
+\begin{figure}[H]
+    \centering
+    \subfigure[Small Narrowbodies]{
+        \includegraphics[width=0.45\textwidth]{images/small_narrowbodies_load_factor_bar.png}
+    }
+    \subfigure[Large Narrowbodies]{
+        \includegraphics[width=0.45\textwidth]{images/large_narrowbodies_load_factor_bar.png}
+    }
+    \subfigure[Widebodies]{
+        \includegraphics[width=0.45\textwidth]{images/widebodies_load_factor_bar.png}
+    }
+    \subfigure[Total Fleet]{
+        \includegraphics[width=0.45\textwidth]{images/total_fleet_load_factor_bar.png}
+    }
+    \caption{Bar Chart of the variable Load Factor}
+\end{figure}

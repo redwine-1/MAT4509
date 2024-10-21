@@ -32,10 +32,9 @@ get_maintenace_category <- function(row_num) {
 # For ploting Load Factor bar plot
 plot_bar <- function(data, title) {
     barplot(data,
-        main = title,
         xlab = "Years",
         ylab = "Load Factor (%)",
-        col = "lightgreen",
+        col = "lightblue",
         border = "black"
     )
 }
@@ -54,7 +53,7 @@ lapply(1:4, function(i) {
     file_name <- paste0(
         "report/images/",
         gsub(" ", "_", fleet_category[i]),
-        "maintenace_pie", ".png"
+        "_maintenace_pie", ".png"
     )
     png(file_name, width = 300, height = 300)
     data <- get_maintenace_category(maintenance_rows[i])
@@ -64,11 +63,14 @@ lapply(1:4, function(i) {
 
 
 # bar chart for load factor
-windows(width = 1920 / 100, height = 1080 / 100) # Set window size
-par(mfrow = c(2, 2), oma = c(0, 0, 3, 0))
 lapply(1:4, function(i) {
     data <- setNames(get_data_by_row(load_factor_rows[i]), years)
+    file_name <- paste0(
+        "report/images/",
+        gsub(" ", "_", fleet_category[i]),
+        "_load_factor_bar", ".png"
+    )
+    png(file_name, width = 1000, height = 500)
     plot_bar(data, fleet_category[i])
+    dev.off()
 })
-mtext("Load Factor", outer = TRUE, cex = 1.5)
-par(mfrow = c(1, 1))
