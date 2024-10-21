@@ -38,39 +38,43 @@ get_category_data <- function(row_num, categories) {
   return(data.frame(costs = costs, category = category))
 }
 
-box_plot <- function(data, title, ylab) {
+box_plot <- function(data, title1, title2, ylab) {
+  file_name <- paste0(
+    "report/images/",
+    gsub(" ", "_", title1),
+    "_",
+    gsub(" ", "_", title2),
+    ".png"
+  )
+  png(file_name, width = 500, height = 400)
   boxplot(costs ~ category,
     data = data,
-    main = title,
-    col = "lightgreen",
+    col = "lightblue",
     ylab = ylab,
     border = "black"
   )
+  dev.off()
 }
 
 plot_category <- function(rows, categories, title, ylab) {
-  windows(width = 1920 / 100, height = 1080 / 100) # Set window size
-  par(mfrow = c(2, 2), oma = c(0, 0, 3, 0))
   # Create the box plot using the formula interface
   lapply(
     seq_along(rows),
     function(i) {
       box_plot(
-        get_category_data(
-          rows[i], categories
-        ), fleet_category[i], ylab
+        get_category_data(rows[i], categories),
+        title,
+        fleet_category[i], ylab
       )
     }
   )
-  mtext(title, outer = TRUE, cex = 1.5)
-  par(mfrow = c(1, 1))
 }
 
 plot_category(
   purchased_goods_rows,
   purchased_goods_categories,
   "Purchased Goods",
-  "Hours"
+  "Cost ($)"
 )
 plot_category(
   ownership_rows,
@@ -82,5 +86,5 @@ plot_category(
   daily_utilization_rows,
   daily_utilization_categories,
   "Daily Utilization",
-  "Cost ($)"
+  "Hours"
 )

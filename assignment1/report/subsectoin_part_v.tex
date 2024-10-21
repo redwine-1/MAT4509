@@ -1,0 +1,77 @@
+\subsection{Part v: Box Plot for Purchased Goods, Aircraft Ownership, and Daily Utilization}
+Box plots are developed for the variables ``Purchased Goods", ``Aircraft Ownership", and ``Daily Utilization per Aircraft" to visualize their spread and identify any outliers. At first categories of each of the variables are defined.
+\lstinputlisting[language=R, firstline = 11, lastline = 14]{../Q1_v.R}
+
+Data for each variable was loaded using the \textit{get\_category\_data} function.
+
+\lstinputlisting[language=R, firstline = 31, lastline = 39]{../Q1_v.R}
+
+Box plot for each variable was drawn using the following functions.
+\lstinputlisting[language=R, firstline = 41, lastline = 71]{../Q1_v.R}
+
+\begin{figure}[H]
+    \centering
+    % First row, first image
+    \subfigure[Small Narrowbodies]{
+        \includegraphics[width=0.45\textwidth]{images/Aircraft_Ownership_small_narrowbodies.png}
+    }
+    % First row, second image
+    \subfigure[Large Narrowbodies]{
+        \includegraphics[width=0.45\textwidth]{images/Aircraft_Ownership_large_narrowbodies.png}
+    }
+
+    % Second row, first image
+    \subfigure[Widebodies]{
+        \includegraphics[width=0.45\textwidth]{images/Aircraft_Ownership_widebodies.png}
+    }
+    % Second row, second image
+    \subfigure[Total Fleet]{
+        \includegraphics[width=0.45\textwidth]{images/Aircraft_Ownership_total_fleet.png}
+    }
+
+    \caption{Box Plot of the variable ``Aircraft Ownership"}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    % First row, first image
+    \subfigure[Small Narrowbodies]{
+        \includegraphics[width=0.45\textwidth]{images/Daily_Utilization_small_narrowbodies.png}
+    }
+    % First row, second image
+    \subfigure[Large Narrowbodies]{
+        \includegraphics[width=0.45\textwidth]{images/Daily_Utilization_large_narrowbodies.png}
+    }
+
+    % Second row, first image
+    \subfigure[Widebodies]{
+        \includegraphics[width=0.45\textwidth]{images/Daily_Utilization_widebodies.png}
+    }
+    % Second row, second image
+    \subfigure[Total Fleet]{
+        \includegraphics[width=0.45\textwidth]{images/Daily_Utilization_total_fleet.png}
+    }
+
+    \caption{Box Plot of the variable ``Daily Utilization per Aircraft"}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    % First row, first image
+    \subfigure[Small Narrowbodies]{
+        \includegraphics[width=0.45\textwidth]{images/Purchased_Goods_small_narrowbodies.png}
+    }
+    % First row, second image
+    \subfigure[Large Narrowbodies]{
+        \includegraphics[width=0.45\textwidth]{images/Purchased_Goods_large_narrowbodies.png}
+    }
+
+    % Second row, first image
+    \subfigure[Widebodies]{
+        \includegraphics[width=0.45\textwidth]{images/Purchased_Goods_widebodies.png}
+    }
+    % Second row, second image
+    \subfigure[Total Fleet]{
+        \includegraphics[width=0.45\textwidth]{images/Purchased_Goods_total_fleet.png}
+    }
+
+    \caption{Box Plot of the variable ``Purchased Goods"}
+\end{figure}
