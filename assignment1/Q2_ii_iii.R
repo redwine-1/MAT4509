@@ -53,8 +53,25 @@ calculate_r_squared <- function(data, independent_variable) {
     cat("\n\n")
 }
 
+calculate_standard_error <- function(data, independent_variable) {
+    cat("Standard Errors for  Dependent Variable 'Salaries and Wages' and Independent Variable '", independent_variable, "'\n", sep = "")
+    for (i in 1:4) {
+        model <- lm(salary_wages_data[i, ] ~ data[i, ])
+        se <- summary(model)$coefficients[2, "Std. Error"]
+        cat("Standard Errors for ", fleet_category[i], ":", se, "\n")
+    }
+    cat("\n\n")
+}
+
+
 calculate_r_squared(pilot_training_data, "Pilot Training Data")
 calculate_r_squared(benefits_data, " Benefits and Payroll Taxes")
 calculate_r_squared(per_diem_personnel_data, "Per Diem/ Personnel")
 calculate_r_squared(maintenance_data, "Maintenance")
 calculate_r_squared(aircraft_ownership_data, "Aircraft Ownership")
+
+calculate_standard_error(pilot_training_data, "Pilot Training Data")
+calculate_standard_error(benefits_data, " Benefits and Payroll Taxes")
+calculate_standard_error(per_diem_personnel_data, "Per Diem/ Personnel")
+calculate_standard_error(maintenance_data, "Maintenance")
+calculate_standard_error(aircraft_ownership_data, "Aircraft Ownership")
