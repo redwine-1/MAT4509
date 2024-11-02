@@ -1,0 +1,109 @@
+\subsection{Part II: Determination and Interpretation of R Squared }
+
+First the rows of all data are defined
+\lstinputlisting[language=R, firstline=21, lastline=27]{../Q2_ii.R}
+
+Then data for each fleet categories are extracted using the following function
+\lstinputlisting[language=R, firstline=10, lastline=18]{../Q2_ii.R}
+
+The r squared value is calculated using the following function
+\lstinputlisting[language=R, firstline=45, lastline=54]{../Q2_ii.R}
+
+\subsubsection*{R-Squared Summary for Salaries and Wages}
+
+\begin{table}[htbp]
+    \centering
+    \begin{minipage}{0.45\textwidth} % Adjust width as needed
+        \centering
+        \caption{R-Squared Summary for Salaries and Wages: Pilot Training Data}
+        \begin{tabular}{@{}ll@{}}
+            \toprule
+            \textbf{Aircraft Type} & \textbf{R-Squared} \\ \midrule
+            Small Narrowbodies     & 0.3626             \\
+            Large Narrowbodies     & 0.5541             \\
+            Widebodies             & 0.7685             \\
+            Total Fleet            & 0.6107             \\ \bottomrule
+        \end{tabular}
+    \end{minipage}%
+    \hspace{0.05\textwidth} % Space between the tables
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \caption{R-Squared Summary for Salaries and Wages: Benefits and Payroll Taxes}
+        \begin{tabular}{@{}ll@{}}
+            \toprule
+            \textbf{Aircraft Type} & \textbf{R-Squared} \\ \midrule
+            Small Narrowbodies     & 0.2449             \\
+            Large Narrowbodies     & 0.0582             \\
+            Widebodies             & 0.0918             \\
+            Total Fleet            & 0.1341             \\ \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \begin{minipage}{0.45\textwidth} % Adjust width as needed
+        \centering
+        \caption{R-Squared Summary for Salaries and Wages: Per Diem/Personnel}
+        \begin{tabular}{@{}ll@{}}
+            \toprule
+            \textbf{Aircraft Type} & \textbf{R-Squared} \\ \midrule
+            Small Narrowbodies     & 0.4479             \\
+            Large Narrowbodies     & 0.3492             \\
+            Widebodies             & 0.0623             \\
+            Total Fleet            & 0.3083             \\ \bottomrule
+        \end{tabular}
+    \end{minipage}%
+    \hspace{0.05\textwidth} % Space between the tables
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \caption{R-Squared Summary for Salaries and Wages: Maintenance}
+        \begin{tabular}{@{}ll@{}}
+            \toprule
+            \textbf{Aircraft Type} & \textbf{R-Squared} \\ \midrule
+            Small Narrowbodies     & 0.2398             \\
+            Large Narrowbodies     & 0.0010             \\
+            Widebodies             & 0.0458             \\
+            Total Fleet            & 0.0630             \\ \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \begin{minipage}{0.45\textwidth} % Adjust width as needed
+        \centering
+        \caption{R-Squared Summary for Salaries and Wages: Aircraft Ownership}
+        \begin{tabular}{@{}ll@{}}
+            \toprule
+            \textbf{Aircraft Type} & \textbf{R-Squared} \\ \midrule
+            Small Narrowbodies     & 0.4229             \\
+            Large Narrowbodies     & 0.2501             \\
+            Widebodies             & 0.1528             \\
+            Total Fleet            & 0.1732             \\ \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{table}
+\subsubsection{Concise Interpretation of R-Squared Values}
+
+The R-squared values reflect the extent to which various independent variables explain the variance in ``Salaries and Wages'':
+
+\begin{enumerate}
+    \item \textbf{Pilot Training Data:}
+          Strong explanatory power, particularly for widebodies (0.7685), indicating that training data accounts for approximately 77\% of the variance in salaries and wages. The total fleet R-squared is also significant at 0.6107.
+
+    \item \textbf{Benefits and Payroll Taxes:}
+          Very low explanatory power, with small narrowbodies at 0.2449 and large narrowbodies at only 0.0582, suggesting minimal influence on salaries. The total fleet R-squared (0.1341) reinforces this finding.
+
+    \item \textbf{Per Diem/Personnel:}
+          Moderate explanatory power for small narrowbodies (0.4479) and large narrowbodies (0.3492), but limited impact for widebodies (0.0623) and overall (0.3083).
+
+    \item \textbf{Maintenance:}
+          Generally low across all categories, particularly for widebodies (0.0458), indicating minimal effect on salaries, with a total fleet R-squared of 0.0629.
+
+    \item \textbf{Aircraft Ownership:}
+          Moderate influence, especially for small narrowbodies (0.4229). R-squared values for large narrowbodies (0.2501) and widebodies (0.1528) are lower, with a total fleet R-squared of 0.1732.
+\end{enumerate}
+
+
+
