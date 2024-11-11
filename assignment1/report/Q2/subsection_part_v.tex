@@ -1,0 +1,14 @@
+\subsection{Part V: Global Test}
+p values was obtained using the following function:
+\lstinputlisting[language=R, firstline=78, lastline=86]{../Q2_ii_iii.R}
+The p-values for each fleet category indicate the statistical significance of the regression models. In all cases, the p-values are less than 0.05, suggesting that the models are statistically significant and that the independent variables are likely useful predictors of \texttt{salary\_wages}.
+
+\begin{itemize}
+    \item \textbf{Small Narrowbodies:} The F-statistic is 10.89, with a p-value of \(0.000144\). This low p-value suggests that the model is statistically significant, indicating that the independent variables contribute significantly to predicting \texttt{salary\_wages}.
+
+    \item \textbf{Large Narrowbodies:} The F-statistic is 11.17, with a p-value of \(0.000125\). This low p-value indicates strong statistical significance for the model, showing that the independent variables are relevant in predicting \texttt{salary\_wages}.
+
+    \item \textbf{Widebodies:} The F-statistic is 21.17, with a very low p-value of \(2.61 \times 10^{-6}\), suggesting an even higher level of statistical significance. This means that the model is highly significant, and the independent variables are effective predictors of \texttt{salary\_wages}.
+
+    \item \textbf{Total Fleet:} The F-statistic is 15.01, with a p-value of \(2.23 \times 10^{-5}\), which is also very low. This demonstrates that the model is statistically significant, supporting the importance of the independent variables in predicting \texttt{salary\_wages}.
+\end{itemize}

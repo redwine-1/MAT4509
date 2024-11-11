@@ -1,5 +1,6 @@
 library(readxl)
 library(rstudioapi)
+library(corrplot)
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
@@ -16,7 +17,6 @@ get_data_by_rows <- function(row_nums) {
     }
     return(extracted_data)
 }
-
 
 # define rows
 salary_wages_rows <- c(6, 45, 84, 123)
@@ -42,36 +42,80 @@ fleet_category <- c(
     "total fleet"
 )
 
+# R squared (ii)
+print_r_squared <- function(model_summary) {
+    r_squared <- model_summary$r.squared
+    cat("\tR-squared:", r_squared, "\n")
+}
+
+# Standard Error (iii)
+print_std_err <- function(model_summary) {
+    std_err <- model_summary$sigma
+    cat("\tStandard Error:", std_err, "\n")
+}
+
+# Correlation Matrix (iv)
+create_corr_matrix <- function(data, fleet_category) {
+    file_name <- paste0(
+        "report/images/",
+        gsub(" ", "_", fleet_category),
+        "_corr_matrix", ".png"
+    )
+    png(file_name, width = 600, height = 600)
+    correlation_matrix <- cor(data)
+    # print(correlation_matrix)
+    corrplot(
+        correlation_matrix,
+        method = "number",
+        type = "full",
+        tl.col = "black",
+        tl.srt = 45
+    )
+    dev.off()
+}
+
+# F value and P value for global analysis (v)
+global_test <- function(model_summary) {
+    f_statistic <- model_summary$fstatistic
+    p_value <- pf(f_statistic[1],
+        f_statistic[2],
+        f_statistic[3],
+        lower.tail = FALSE
+    )
+    cat("\tF-statistic:", f_statistic[1], "\n\tP-value:", p_value, "\n")
+}
+
+
+get_coefficients <- function(model_summary) {
+    model_coefficients <- model_summary$coefficients
+    cat("P values")
+    print(model_coefficients)
+}
 # function to calculate r Square
-calculate_r_squared <- function(data, independent_variable) {
-    cat("R-squared for Dependent Variable 'Salaries and Wages' and Independent Variable '", independent_variable, "'\n", sep = "")
+regression_model_analysis <- function() {
     for (i in 1:4) {
-        model <- lm(salary_wages_data[i, ] ~ data[i, ])
-        r_squared <- summary(model)$r.squared
-        cat("R-squared for ", fleet_category[i], ":", r_squared, "\n")
+        data <- data.frame(
+            salary_wages = salary_wages_data[i, ],
+            pilot_training = pilot_training_data[i, ],
+            benefits = benefits_data[i, ],
+            per_diem_personnel = per_diem_personnel_data[i, ],
+            maintenance = maintenance_data[i, ],
+            aircraft_ownership = aircraft_ownership_data[i, ]
+        )
+        model <- lm(
+            salary_wages ~ pilot_training + benefits + per_diem_personnel + maintenance + aircraft_ownership,
+            data = data
+        )
+        model_summary <- summary(model)
+        cat(fleet_category[i], ":\n")
+        print_r_squared(model_summary)
+        print_std_err(model_summary)
+        create_corr_matrix(data, fleet_category[i])
+        global_test(model_summary)
+        get_coefficients(model_summary)
+        cat("\n")
     }
     cat("\n\n")
 }
 
-calculate_standard_error <- function(data, independent_variable) {
-    cat("Standard Errors for  Dependent Variable 'Salaries and Wages' and Independent Variable '", independent_variable, "'\n", sep = "")
-    for (i in 1:4) {
-        model <- lm(salary_wages_data[i, ] ~ data[i, ])
-        se <- summary(model)$coefficients[2, "Std. Error"]
-        cat("Standard Errors for ", fleet_category[i], ":", se, "\n")
-    }
-    cat("\n\n")
-}
-
-
-calculate_r_squared(pilot_training_data, "Pilot Training Data")
-calculate_r_squared(benefits_data, " Benefits and Payroll Taxes")
-calculate_r_squared(per_diem_personnel_data, "Per Diem/ Personnel")
-calculate_r_squared(maintenance_data, "Maintenance")
-calculate_r_squared(aircraft_ownership_data, "Aircraft Ownership")
-
-calculate_standard_error(pilot_training_data, "Pilot Training Data")
-calculate_standard_error(benefits_data, " Benefits and Payroll Taxes")
-calculate_standard_error(per_diem_personnel_data, "Per Diem/ Personnel")
-calculate_standard_error(maintenance_data, "Maintenance")
-calculate_standard_error(aircraft_ownership_data, "Aircraft Ownership")
+regression_model_analysis()

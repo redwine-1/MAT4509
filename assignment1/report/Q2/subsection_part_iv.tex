@@ -1,0 +1,38 @@
+\subsection{Part IV: Correlation Matrix}
+
+The Correlation matrix was created using the following function
+\lstinputlisting[language=R, firstline=58, lastline=75]{../Q2_ii_iii.R}
+\begin{figure}[H]
+    \centering
+    \subfigure[Small Narrowbodies]{
+        \includegraphics[width=0.45\textwidth]{images/small_narrowbodies_corr_matrix.png}
+    }
+    \subfigure[Large Narrowbodies]{
+        \includegraphics[width=0.45\textwidth]{images/large_narrowbodies_corr_matrix.png}
+    }
+    \subfigure[Widebodies]{
+        \includegraphics[width=0.45\textwidth]{images/widebodies_corr_matrix.png}
+    }
+    \subfigure[Total Fleet]{
+        \includegraphics[width=0.45\textwidth]{images/total_fleet_corr_matrix.png}
+    }
+    \caption{Correlation Matrix of Different Fleet Categories}
+\end{figure}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Fleet Category} & \textbf{Strong Correlation}                                                                                    & \textbf{Weak Correlation}                                                                                               \\
+        \hline
+        Small Narrowbodies      & \begin{tabular}[c]{@{}c@{}} {pilot\_training} \\ {per\_diem\_personnel} \\ {aircraft\_ownership} \end{tabular} & \begin{tabular}[c]{@{}c@{}} {benefits} \\ {maintenance} \end{tabular}                                                   \\
+        \hline
+        Large Narrowbodies      & \begin{tabular}[c]{@{}c@{}} {pilot\_training} \\ {per\_diem\_personnel} \\ {aircraft\_ownership} \end{tabular} & \begin{tabular}[c]{@{}c@{}} {benefits} \\ {maintenance} \end{tabular}                                                   \\
+        \hline
+        Widebodies              & {pilot\_training}                                                                                              & \begin{tabular}[c]{@{}c@{}} {benefits} \\ {maintenance} \\ {aircraft\_ownership}\\ {per\_diem\_personnel} \end{tabular} \\
+        \hline
+        Total Fleet             & \begin{tabular}[c]{@{}c@{}} {pilot\_training} \\ {per\_diem\_personnel} \end{tabular}                          & \begin{tabular}[c]{@{}c@{}} {benefits} \\ {maintenance} \\ {aircraft\_ownership}\\ \end{tabular}                        \\
+        \hline
+    \end{tabular}
+    \caption{Summary of Strong and Weak Correlations with {salary\_wages} Across Fleet Categories}
+\end{table}

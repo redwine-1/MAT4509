@@ -1,78 +1,34 @@
 \subsection{Part III: Determination of  the Standard error }
 
 The Standard error was calculated using the following function
-\lstinputlisting[language=R, firstline=56, lastline=64]{../Q2_ii_iii.R}
+\lstinputlisting[language=R, firstline=52, lastline=55]{../Q2_ii_iii.R}
 
-\begin{table}[htbp]
+
+\begin{table}[h!]
     \centering
-    \begin{minipage}{0.45\textwidth} % Adjust width as needed
-        \centering
-        \caption{Standard Errors for Salaries and Wages: Pilot Training Data}
-        \begin{tabular}{@{}ll@{}}
-            \toprule
-            \textbf{Aircraft Type} & \textbf{Standard Error} \\ \midrule
-            Small Narrowbodies     & 2.945658                \\
-            Large Narrowbodies     & 1.897191                \\
-            Widebodies             & 1.624223                \\
-            Total Fleet            & 2.050287                \\ \bottomrule
-        \end{tabular}
-    \end{minipage}%
-    \hspace{0.05\textwidth} % Space between the tables
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \caption{Standard Errors for Salaries and Wages: Benefits and Payroll Taxes}
-        \begin{tabular}{@{}ll@{}}
-            \toprule
-            \textbf{Aircraft Type} & \textbf{Standard Error} \\ \midrule
-            Small Narrowbodies     & 0.3933256               \\
-            Large Narrowbodies     & 0.4291333               \\
-            Widebodies             & 0.4178515               \\
-            Total Fleet            & 0.4008269               \\ \bottomrule
-        \end{tabular}
-    \end{minipage}
+    \begin{tabular}{lcc}
+        \toprule
+        Category           & Standard Error \\
+        \midrule
+        Small Narrowbodies & 57.20074       \\
+        Large Narrowbodies & 55.25397       \\
+        Widebodies         & 77.62307       \\
+        Total Fleet        & 58.85758       \\
+        \bottomrule
+    \end{tabular}
+    \caption{Standard Error values for different aircraft categories}
+    \label{tab:rsquared_se}
 \end{table}
 
-\begin{table}[htbp]
-    \centering
-    \begin{minipage}{0.45\textwidth} % Adjust width as needed
-        \centering
-        \caption{Standard Errors for Salaries and Wages: Per Diem/ Personnel}
-        \begin{tabular}{@{}ll@{}}
-            \toprule
-            \textbf{Aircraft Type} & \textbf{Standard Error} \\ \midrule
-            Small Narrowbodies     & 1.544458                \\
-            Large Narrowbodies     & 1.678229                \\
-            Widebodies             & 1.751502                \\
-            Total Fleet            & 1.890908                \\ \bottomrule
-        \end{tabular}
-    \end{minipage}%
-    \hspace{0.05\textwidth} % Space between the tables
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \caption{Standard Errors for Salaries and Wages: Maintenance}
-        \begin{tabular}{@{}ll@{}}
-            \toprule
-            \textbf{Aircraft Type} & \textbf{Standard Error} \\ \midrule
-            Small Narrowbodies     & 0.7082815               \\
-            Large Narrowbodies     & 0.327993                \\
-            Widebodies             & 0.6431427               \\
-            Total Fleet            & 0.5639674               \\ \bottomrule
-        \end{tabular}
-    \end{minipage}
-\end{table}
+The Standard Error (SE) is a measure of the accuracy of predictions made by the model, indicating the average distance that the observed values fall from the regression line. A lower SE suggests that the model’s predictions are closer to the actual values, while a higher SE implies greater dispersion of observed values from the predicted values.
 
-\begin{table}[htbp]
-    \centering
-    \begin{minipage}{0.45\textwidth} % Adjust width as needed
-        \centering
-        \caption{Standard Errors for Salaries and Wages: Aircraft Ownership}
-        \begin{tabular}{@{}ll@{}}
-            \toprule
-            \textbf{Aircraft Type} & \textbf{Standard Error} \\ \midrule
-            Small Narrowbodies     & 0.3972191               \\
-            Large Narrowbodies     & 0.1741028               \\
-            Widebodies             & 0.1969666               \\
-            Total Fleet            & 0.2725161               \\ \bottomrule
-        \end{tabular}
-    \end{minipage}
-\end{table}
+\begin{itemize}
+    \item \textbf{Small Narrowbodies:} The Standard Error is 57.20074, meaning that the observed values for small narrowbody aircraft, on average, deviate from the predicted values by approximately 57.20 units. This indicates a relatively moderate level of dispersion.
+
+    \item \textbf{Large Narrowbodies:} With a Standard Error of 55.25397, the large narrowbody aircraft category shows slightly less dispersion compared to small narrowbodies, implying that predictions are somewhat more accurate for this category.
+
+    \item \textbf{Widebodies:} The Standard Error for widebody aircraft is 77.62307, indicating a higher level of dispersion in predictions compared to the narrowbody categories. This suggests that the model's accuracy is lower for widebodies, with actual values often deviating more from the predictions.
+
+    \item \textbf{Total Fleet:} For the total fleet, the Standard Error is 58.85758, reflecting the overall deviation across all categories. This value is similar to that of the small narrowbodies, indicating a moderate level of dispersion for the entire fleet.
+
+\end{itemize}

@@ -3,14 +3,20 @@
 In simple linear regression, the model is defined by the following equation:
 
 \begin{equation}
-    \hat{y} = \beta_0 + \beta_1 x + \epsilon
+    \hat{y} = \beta_0 + \beta_1 \text{PT} + \beta_2 \text{BPT} + \beta_3 \text{PDP} + \beta_4 \text{M} + \beta_5 \text{AO} + \beta_6 \text{I} + \beta_7 \text{DUA} + \epsilon
 \end{equation}
 
 where:
 \begin{itemize}
-    \item \(\hat{y}\): The predicted or estimated value of the dependent variable, representing the outcome of interest.
-    \item \(\beta_0\): The intercept term, which is the expected value of \(\hat{y}\) when \(x = 0\). This is a constant that shifts the regression line up or down.
-    \item \(\beta_1\): The slope coefficient, representing the change in the predicted value \(\hat{y}\) for a one-unit increase in the independent variable \(x\). It quantifies the strength and direction of the relationship between \(x\) and \(\hat{y}\).
-    \item \(x\): The independent variable (or predictor), which influences the dependent variable \(\hat{y}\). This variable is assumed to be measured without error.
-    \item \(\epsilon\): The error term or residual, which accounts for the variation in \(\hat{y}\) that cannot be explained by the linear relationship with \(x\). It represents random deviations from the predicted values.
+    \item \(\hat{y}\): The predicted or estimated value of the dependent variable, representing the Salaries and Wages outcome of interest.
+    \item \(\beta_0\): The intercept term, which is the expected value of \(\hat{y}\) when all independent variables are zero. This is a constant that shifts the regression model vertically.
+    \item \(\beta_1, \beta_2, \dots, \beta_7\): The slope coefficients, where each \(\beta_i\) represents the change in the predicted value \(\hat{y}\) for a one-unit increase in the corresponding independent variable. These coefficients quantify the strength and direction of the relationship between each predictor and the dependent variable.
+    \item \(\text{PT}\): Pilot Training, the cost or value associated with training pilots.
+    \item \(\text{BPT}\): Benefits and Payroll Taxes, the expenses related to employee benefits and taxes.
+    \item \(\text{PDP}\): Per Diem/Personnel, per diem costs for personnel.
+    \item \(\text{M}\): Maintenance, the costs related to aircraft maintenance.
+    \item \(\text{AO}\): Aircraft Ownership, the costs associated with owning the aircraft.
+    \item \(\text{I}\): Indices, economic or operational indices affecting the wages.
+    \item \(\text{DUA}\): Daily Utilization per Aircraft, the daily usage rate of each aircraft.
+    \item \(\epsilon\): The error term or residual, which accounts for the variation in \(\hat{y}\) that cannot be explained by the linear relationship with the independent variables. It represents random deviations from the predicted values.
 \end{itemize}

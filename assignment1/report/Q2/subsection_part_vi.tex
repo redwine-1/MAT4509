@@ -1,0 +1,76 @@
+\subsection{Part VI: The Hypothesis on Each of the Independent Variables}
+\begin{longtable}{|l|l|l|}
+    \hline
+    \textbf{Model} & \textbf{Variable}    & \textbf{p-value} \\ \hline
+    \endfirsthead
+
+    \hline
+    \textbf{Model} & \textbf{Variable}    & \textbf{p-value} \\ \hline
+    \endhead
+
+    \hline
+    \endfoot
+
+    \hline
+    \endlastfoot
+
+    \textbf{Small Narrowbodies}
+                   & pilot\_training      & 0.317            \\
+                   & benefits             & 0.020            \\
+                   & per\_diem\_personnel & 0.020            \\
+                   & maintenance          & 0.873            \\
+                   & aircraft\_ownership  & 0.095            \\ \hline
+
+    \textbf{Large Narrowbodies}
+                   & pilot\_training      & 0.013            \\
+                   & benefits             & 0.170            \\
+                   & per\_diem\_personnel & 0.004            \\
+                   & maintenance          & 0.491            \\
+                   & aircraft\_ownership  & 0.127            \\ \hline
+
+    \textbf{Widebodies}
+                   & pilot\_training      & 9.58e-06         \\
+                   & benefits             & 0.709            \\
+                   & per\_diem\_personnel & 0.003            \\
+                   & maintenance          & 0.777            \\
+                   & aircraft\_ownership  & 0.292            \\ \hline
+
+    \textbf{Total Fleet}
+                   & pilot\_training      & 0.002            \\
+                   & benefits             & 0.206            \\
+                   & per\_diem\_personnel & 0.002            \\
+                   & maintenance          & 0.984            \\
+                   & aircraft\_ownership  & 0.382            \\ \hline
+\end{longtable}
+
+Based on the p-values obtained from the regression models for the different aircraft categories, the following independent variables have a p-value greater than 0.05, indicating that they may not be statistically significant. These variables may be considered for removal from the model:
+
+\begin{itemize}
+    \item \textbf{Small Narrowbodies:}
+          \begin{itemize}
+              \item \textit{Pilot Training} (p-value =  0.317)
+              \item \textit{Maintenance} (p-value = 0.8728)
+              \item \textit{Aircraft Ownership} (p-value = 0.0951)
+          \end{itemize}
+
+    \item \textbf{Large Narrowbodies:}
+          \begin{itemize}
+              \item \textit{Benefits} (p-value = 0.1696)
+              \item \textit{Maintenance} (p-value = 0.4906)
+              \item \textit{Aircraft Ownership} (p-value = 0.1268)
+          \end{itemize}
+
+    \item \textbf{Widebodies:}
+          \begin{itemize}
+              \item \textit{Benefits} (p-value = 0.7096)
+              \item \textit{Maintenance} (p-value = 0.7756)
+              \item \textit{Aircraft Ownership} (p-value = 0.2919)
+          \end{itemize}
+
+    \item \textbf{Total Fleet:}
+          \begin{itemize}
+              \item \textit{Benefits} (p-value = 0.2058)
+              \item \textit{Maintenance} (p-value = 0.9837)
+              \item \textit{Aircraft Ownership} (p-value = 0.3818)
+          \end{itemize}
+\end{itemize}

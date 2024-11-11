@@ -4,106 +4,40 @@ First the rows of all data are defined
 \lstinputlisting[language=R, firstline=21, lastline=27]{../Q2_ii_iii.R}
 
 Then data for each fleet categories are extracted using the following function
-\lstinputlisting[language=R, firstline=10, lastline=18]{../Q2_ii_iii.R}
+\lstinputlisting[language=R, firstline=11, lastline=19  ]{../Q2_ii_iii.R}
 
-The r squared value is calculated using the following function
-\lstinputlisting[language=R, firstline=45, lastline=54]{../Q2_ii_iii.R}
+The regression model was created using the following function
+\lstinputlisting[language=R, firstline=95, lastline=119]{../Q2_ii_iii.R}
+
+The r squared value was obtained from the following function
+\lstinputlisting[language=R, firstline=46, lastline=49]{../Q2_ii_iii.R}
 
 \subsubsection*{R-Squared Summary for Salaries and Wages}
-
 \begin{table}[htbp]
     \centering
-    \begin{minipage}{0.45\textwidth} % Adjust width as needed
-        \centering
-        \caption{R-Squared Summary for Salaries and Wages: Pilot Training Data}
-        \begin{tabular}{@{}ll@{}}
-            \toprule
-            \textbf{Aircraft Type} & \textbf{R-Squared} \\ \midrule
-            Small Narrowbodies     & 0.3626             \\
-            Large Narrowbodies     & 0.5541             \\
-            Widebodies             & 0.7685             \\
-            Total Fleet            & 0.6107             \\ \bottomrule
-        \end{tabular}
-    \end{minipage}%
-    \hspace{0.05\textwidth} % Space between the tables
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \caption{R-Squared Summary for Salaries and Wages: Benefits and Payroll Taxes}
-        \begin{tabular}{@{}ll@{}}
-            \toprule
-            \textbf{Aircraft Type} & \textbf{R-Squared} \\ \midrule
-            Small Narrowbodies     & 0.2449             \\
-            Large Narrowbodies     & 0.0582             \\
-            Widebodies             & 0.0918             \\
-            Total Fleet            & 0.1341             \\ \bottomrule
-        \end{tabular}
-    \end{minipage}
+    \begin{tabular}{lc}
+        \toprule
+        Category           & R-squared \\
+        \midrule
+        Small Narrowbodies & 0.784049  \\
+        Large Narrowbodies & 0.7882288 \\
+        Widebodies         & 0.8758896 \\
+        Total Fleet        & 0.8334002 \\
+        \bottomrule
+    \end{tabular}
+    \caption{R-squared values for different aircraft categories}
+    \label{tab:rsquared}
 \end{table}
 
-\begin{table}[htbp]
-    \centering
-    \begin{minipage}{0.45\textwidth} % Adjust width as needed
-        \centering
-        \caption{R-Squared Summary for Salaries and Wages: Per Diem/Personnel}
-        \begin{tabular}{@{}ll@{}}
-            \toprule
-            \textbf{Aircraft Type} & \textbf{R-Squared} \\ \midrule
-            Small Narrowbodies     & 0.4479             \\
-            Large Narrowbodies     & 0.3492             \\
-            Widebodies             & 0.0623             \\
-            Total Fleet            & 0.3083             \\ \bottomrule
-        \end{tabular}
-    \end{minipage}%
-    \hspace{0.05\textwidth} % Space between the tables
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \caption{R-Squared Summary for Salaries and Wages: Maintenance}
-        \begin{tabular}{@{}ll@{}}
-            \toprule
-            \textbf{Aircraft Type} & \textbf{R-Squared} \\ \midrule
-            Small Narrowbodies     & 0.2398             \\
-            Large Narrowbodies     & 0.0010             \\
-            Widebodies             & 0.0458             \\
-            Total Fleet            & 0.0630             \\ \bottomrule
-        \end{tabular}
-    \end{minipage}
-\end{table}
+The R-squared (\( R^2 \)) value is a statistical measure that represents the proportion of the variance for a dependent variable that's explained by an independent variable or variables in a regression model. An \( R^2 \) value closer to 1 indicates that the model explains a large proportion of the variance, while a value closer to 0 indicates less explanatory power.
 
-\begin{table}[htbp]
-    \centering
-    \begin{minipage}{0.45\textwidth} % Adjust width as needed
-        \centering
-        \caption{R-Squared Summary for Salaries and Wages: Aircraft Ownership}
-        \begin{tabular}{@{}ll@{}}
-            \toprule
-            \textbf{Aircraft Type} & \textbf{R-Squared} \\ \midrule
-            Small Narrowbodies     & 0.4229             \\
-            Large Narrowbodies     & 0.2501             \\
-            Widebodies             & 0.1528             \\
-            Total Fleet            & 0.1732             \\ \bottomrule
-        \end{tabular}
-    \end{minipage}
-\end{table}
-\subsubsection{Concise Interpretation of R-Squared Values}
+\begin{itemize}
+    \item \textbf{Small Narrowbodies:} The \( R^2 \) value is 0.784049, which means that approximately 78.4\% of the variability in the data for small narrowbody aircraft is explained by the model. This suggests a relatively strong fit for this category.
 
-The R-squared values reflect the extent to which various independent variables explain the variance in ``Salaries and Wages'':
+    \item \textbf{Large Narrowbodies:} The \( R^2 \) value for large narrowbody aircraft is 0.7882288, or about 78.8\%, indicating a similar level of explanatory power as that for small narrowbodies. This value suggests the model captures most of the variance in this category but with slightly better fit compared to small narrowbodies.
 
-\begin{enumerate}
-    \item \textbf{Pilot Training Data:}
-          Strong explanatory power, particularly for widebodies (0.7685), indicating that training data accounts for approximately 77\% of the variance in salaries and wages. The total fleet R-squared is also significant at 0.6107.
+    \item \textbf{Widebodies:} With an \( R^2 \) value of 0.8758896, or approximately 87.6\%, the model explains a significant portion of the variance in the widebody aircraft data. This high value indicates a strong model fit for this category.
 
-    \item \textbf{Benefits and Payroll Taxes:}
-          Very low explanatory power, with small narrowbodies at 0.2449 and large narrowbodies at only 0.0582, suggesting minimal influence on salaries. The total fleet R-squared (0.1341) reinforces this finding.
+    \item \textbf{Total Fleet:} The \( R^2 \) value for the entire fleet is 0.8334002, or 83.3\%, suggesting that the model performs well in explaining the variance when considering all aircraft types collectively. This provides an overall assessment of model accuracy across all categories.
 
-    \item \textbf{Per Diem/Personnel:}
-          Moderate explanatory power for small narrowbodies (0.4479) and large narrowbodies (0.3492), but limited impact for widebodies (0.0623) and overall (0.3083).
-
-    \item \textbf{Maintenance:}
-          Generally low across all categories, particularly for widebodies (0.0458), indicating minimal effect on salaries, with a total fleet R-squared of 0.0629.
-
-    \item \textbf{Aircraft Ownership:}
-          Moderate influence, especially for small narrowbodies (0.4229). R-squared values for large narrowbodies (0.2501) and widebodies (0.1528) are lower, with a total fleet R-squared of 0.1732.
-\end{enumerate}
-
-
-
+\end{itemize}
